@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 强制深色主题 */
+html {
+  background-color: #0f172a !important;
+  color: white !important;
+}
+
+body {
+  background-color: #0f172a !important;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #374151 50%, #1e293b 75%, #0f172a 100%) !important;
+  background-attachment: fixed !important;
+  color: white !important;
+  min-height: 100vh !important;
+}
+
+/* 强制所有文本为白色或适当颜色 */
+* {
+  color: white !important;
+}
+
+/* 特殊元素颜色覆盖 */
+.text-gray-300 { color: #d1d5db !important; }
+.text-gray-400 { color: #9ca3af !important; }
+.text-gray-500 { color: #6b7280 !important; }
+.text-primary-300 { color: #ff8a4c !important; }
+.text-primary-400 { color: #ff8a4c !important; }
+.text-accent-300 { color: #fde047 !important; }
+.text-green-300 { color: #86efac !important; }
+.text-red-400 { color: #f87171 !important; }
+.text-yellow-300 { color: #fde047 !important; }
+
+@layer components {
+  .modern-card {
+    @apply rounded-2xl shadow-2xl;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(156, 163, 175, 0.3);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-flame {
+    @apply text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+    background: linear-gradient(to right, #ea580c, #ff5722);
+    box-shadow: 0 10px 25px rgba(255, 87, 34, 0.3);
+  }
+  
+  .btn-flame:hover {
+    background: linear-gradient(to right, #c2410c, #ea580c);
+    box-shadow: 0 15px 35px rgba(255, 87, 34, 0.4);
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105;
+    border: 2px solid #ff5722;
+    color: #ff8a4c;
+    background: transparent;
+  }
+  
+  .btn-outline:hover {
+    background: #ff5722;
+    color: white;
+  }
+  
+  .input-modern {
+    @apply rounded-2xl px-6 py-4 outline-none transition-all duration-300;
+    background: rgba(31, 41, 55, 0.5);
+    border: 2px solid rgba(107, 114, 128, 0.5);
+    color: #f3f4f6;
+  }
+  
+  .input-modern::placeholder {
+    color: #9ca3af;
+  }
+  
+  .input-modern:focus {
+    border-color: #ff5722;
+    box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.2);
+  }
+  
+  .nav-item {
+    @apply px-6 py-3 rounded-2xl transition-all duration-300 font-semibold border border-transparent;
+    color: #d1d5db;
+  }
+  
+  .nav-item:hover {
+    color: white;
+    background: linear-gradient(to right, rgba(234, 88, 12, 0.2), rgba(234, 179, 8, 0.2));
+    border-color: rgba(255, 87, 34, 0.3);
+  }
+  
+  .nav-item.active {
+    color: #ff8a4c;
+    background: linear-gradient(to right, rgba(234, 88, 12, 0.3), rgba(234, 179, 8, 0.3));
+    border-color: rgba(255, 87, 34, 0.5);
+  }
+  
+  .section-header {
+    @apply text-5xl font-black mb-6;
+    background: linear-gradient(to right, #ff8a4c, #fde047, #ff5722);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 87, 34, 0.5);
+  }
+  
+}
+
+@layer utilities {
+  .text-flame {
+    @apply font-bold;
+    background: linear-gradient(to right, #ff8a4c, #fde047, #ff5722);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
